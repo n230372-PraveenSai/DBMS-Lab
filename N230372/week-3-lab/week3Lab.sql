@@ -329,4 +329,25 @@ WHERE certificate_id IN (
 	GROUP BY certificate_id
 	HAVING COUNT(DISTINCT application_id)>2
     );
-    
+#38
+SELECT village_name 
+FROM citizen 
+WHERE village_name IN (
+	SELECT village_name 
+    FROM certificate_application ca
+    JOIN panchayat_office po
+    ON ca.office_id = po.office_id
+);
+
+#32 
+SELECT * 
+FROM certificate_type
+WHERE processing_days > ANY(
+		SELECT processing_days 
+        FROM certificate_type ct
+        JOIN certificate_application ca
+        ON ct.certificate_type_id = ca.certificate_id
+        JOIN panchayat_office po 
+        ON po.office_id = ca.office_id
+        WHERE po.office_name = 'Nuzvid Panchayat Office'
+    );
