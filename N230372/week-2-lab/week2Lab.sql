@@ -1,7 +1,10 @@
 -- PART A: verify week-1 database 
 USE gram_panchayat_db;
 SHOW TABLES;
-
+SELECT * FROM citizen;
+SELECT * FROM certificate_type;
+SELECT * FROM certificate_application;
+SELECT * FROM panchayat_office;
 -- Part B – Built-in String Functions 
 # LEVEL 1
 -- 1. Display all citizen names in uppercase. 
@@ -44,7 +47,7 @@ FROM citizen;
 -- 10. Display all applications whose reference number begins with "GP2026".
 SELECT *
 FROM certificate_application
-WHERE SUBSTRING(reference_number,1, 6) = 'GP2026';
+WHERE reference_number LIKE 'GP2026%';
 
 # Part C – Built-in Numeric Functions
 # LEVEL 1
@@ -106,10 +109,10 @@ FROM certificate_application;
 
 #LEVEL 2
 -- 6. Display the expected certificate issue date by adding the processing days to the application date.
-SELECT DATE_ADD(application_date,INTERVAL ct.processing_days DAY) AS 'Expected Cert Issue date'
+SELECT application_date,processing_days,  DATE_ADD(application_date,INTERVAL ct.processing_days DAY) AS 'Expected Cert Issue date'
 FROM certificate_type as ct
-LEFT JOIN certificate_application AS ca
-ON ct.certificate_name = ca.certificate_name ; 
+JOIN certificate_application AS ca
+ON ct.certificate_type_id = ca.certificate_id ; 
 
 -- 7. Display the application date after adding 30 days.
 SELECT application_date , DATE_ADD(application_date, INTERVAL 30 DAY) AS '+30 days'

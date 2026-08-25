@@ -2,7 +2,7 @@ USE gram_panchayat_db;
 
 SHOW TABLES;
 SELECT * FROM citizen;
-SELECT * FROM certificate_type;
+SELECT * FROM certificate_type; 
 SELECT * FROM certificate_application;
 SELECT * FROM panchayat_office;
 
@@ -11,7 +11,7 @@ ALTER TABLE certificate_application
 DROP COLUMN certificate_name;
 
 # Activity 2
-ALTER TABLE certificate_application 
+ALTER TABLE certificate_application  
 ADD COLUMN certificate_id INT NOT NULL,
 ADD COLUMN office_id INT NOT NULL;
 
@@ -45,9 +45,7 @@ REFERENCES panchayat_office (office_id);
 # Activity 5
 -- Verify the created Foreign Key Constraints using an appropriate SQL command.
 SHOW CREATE TABLE certificate_application;
-
-ALTER TABLE certificate_application 
-DROP FOREIGN KEY certificate_application_ibfk_5;
+SHOW CREATE TABLE certificate_application;
 
 # Activity 6
 -- Insert a certificate application with a non-existing citizen_id.

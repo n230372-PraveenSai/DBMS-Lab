@@ -1,4 +1,6 @@
 USE gram_panchayat_db;
+
+
 SHOW TABLES;
 
 SELECT * FROM citizen;
@@ -93,7 +95,8 @@ Task-10 Display a complete Gram Panchayat Certificate
 Application Report containing Citizen details, Certificate details,
 Panchayat Office details and Application information.
 */
-SELECT DISTINCT po.office_name as "Panchayat Office", ct.certificate_name AS 'Certificate Type', ca.application_date 'Application Date', full_name AS'Citizen Name' , c.village_name AS 'Village Name'
+SELECT DISTINCT po.office_name as "Panchayat Office", ct.certificate_name AS 'Certificate Type',
+ ca.application_date 'Application Date', full_name AS'Citizen Name' , c.village_name AS 'Village Name'
 FROM citizen c
 INNER JOIN certificate_application ca
 ON c.citizen_id = ca.citizen_id
