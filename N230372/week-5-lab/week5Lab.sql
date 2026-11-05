@@ -10,12 +10,12 @@ SELECT * FROM panchayat_office;
 INSERT INTO Certificate_Application
 ()
 VALUES
+(1013, 101, 'Death Record Request', '2026-07-08', 'Legal Documentation', 'Submitted', 20.00, 'GP202600072', NULL, 3, 4),
 (1008, 102, 'Family Member Certificate','2026-07-02', 'Welfare Scheme Application','Under Review', 40.00, 'GP202600021',NULL, 4, 1),
 (1009, 103, 'Property Certificate','2026-07-03', 'Property Documentation', 'Submitted', 50.00, 'GP202600033',NULL, 5, 2),
 (1010, 104, 'Residence Certificate','2026-07-04', 'College Admission', 'Approved', 30.00, 'GP202600042','2026-07-10', 1, 2),
 (1019, 105, 'No-Dues Certificate','2026-07-05', 'Local Service Requirement', 'Under Review', 25.00, 'GP202600059', NULL, 6, 3),
 (1012, 106, 'Birth Record Request', '2026-07-06', 'Personal Documentation', 'Rejected', 20.00, 'GP202600065',NULL, 2, 3),
-(1013, 101, 'Death Record Request', '2026-07-08', 'Legal Documentation', 'Submitted', 20.00, 'GP202600072', NULL, 3, 4),
 (1014, 102, 'Family Member Certificate','2026-07-09', 'Government Scheme Application','Approved', 40.00, 'GP202600088', '2026-07-18', 4, 4),
 (1016, 104, 'No-Dues Certificate', '2026-07-11', 'Property Transaction','Rejected', 25.00, 'GP20260015',NULL, 6, 5),
 (1017, 105, 'Birth Record Request','2026-07-12', 'Passport Documentation', 'Approved', 20.00, 'GP20260014','2026-07-17', 2, 6),
@@ -75,7 +75,7 @@ FROM citizen
 GROUP BY village_name;
 
 -- Task 5 Display the number of applications submitted on each application date. 
-SELECT application_date , COUNT(*)
+SELECT application_date , COUNT(*)  
 FROM certificate_application
 GROUP BY application_date;
 
